@@ -25,10 +25,21 @@ body {
   padding: 0;
   background: radial-gradient(circle at top, #111827 0, #050816 40%);
   color: var(--text-main);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-    "Segoe UI", sans-serif;
+  font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "SF Pro Text", "Segoe UI", sans-serif;
   scroll-behavior: smooth;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont,
+    "SF Pro Text", "Segoe UI", sans-serif;
+  letter-spacing: 0.01em;
+}
+
 
 /* NAVBAR */
 
@@ -54,6 +65,13 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.logo-img {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  object-fit: contain;
 }
 
 .logo {
@@ -246,6 +264,22 @@ main {
   background: rgba(17, 24, 39, 0.9);
   transform: translateY(-1px);
 }
+
+.hero-avatar {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.hero-avatar img {
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid rgba(148, 163, 184, 0.7);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.9);
+}
+
 
 /* SECTIONS */
 
