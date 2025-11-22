@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Alejandro Dorado | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio of Alejandro Dorado, Computer Science student at UNF with projects in web development, machine learning, and systems programming." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-left">
+      <span class="logo">AD</span>
+      <span class="nav-name">Alejandro Dorado</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero" id="top">
+      <div class="hero-text">
+        <p class="hero-kicker">Computer Science @ UNF · Graduation Dec 2025</p>
+        <h1>Building secure and data-driven software systems.</h1>
+        <p class="hero-subtitle">
+          I’m Alejandro, a Computer Science student at the University of North Florida (GPA 3.75),
+          with experience in full-stack web apps, machine learning, and networked systems.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn primary">View Projects</a>
+          <a href="#contact" class="btn secondary">Contact Me</a>
+        </div>
+        <div class="hero-meta">
+          <span>Jacksonville, FL</span>
+          <span>English · Spanish · German</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h2>Quick Facts</h2>
+        <ul>
+          <li>B.S. Computer Science – University of North Florida (Jan 2021 – Dec 2025)</li>
+          <li>President’s List & Dean’s List; Full LAC Scholarship Recipient</li>
+          <li>CS50 Cybersecurity · Splunk Fundamentals 1 · Fortinet NSE 1-2 (in progress)</li>
+        </ul>
+        <div class="hero-links">
+          <a href="https://github.com/AlejandroDoradoP2002" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/alejandrodorado" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section">
+      <h2>About Me</h2>
+      <p>
+        I’m a Computer Science student at the University of North Florida with a strong foundation in
+        data structures and algorithms, object-oriented programming, computer networks, systems programming,
+        and intrusion detection. I enjoy building end-to-end solutions that combine clean engineering,
+        data-driven insights, and security best practices.
+      </p>
+      <p>
+        I’ve led a full-stack personal finance web app (FinTrack), built a machine learning system to detect
+        fake job postings (AI JobShield), and implemented concurrent socket servers in Java. I’m actively
+        involved in the Osprey Security Club and IEEE Upsilon Pi Epsilon, and I’m pursuing CompTIA Security+.
+      </p>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="section">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Programming & Development</h3>
+          <ul>
+            <li>Java, Python, JavaScript, HTML/CSS</li>
+            <li>Bash/Shell Scripting</li>
+            <li>Object-Oriented Design & SDLC</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Frameworks & Technologies</h3>
+          <ul>
+            <li>React, Django, REST APIs</li>
+            <li>Spring Framework, JWT</li>
+            <li>Multi-threading, Socket Programming</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Databases</h3>
+          <ul>
+            <li>MySQL, PostgreSQL, SQL</li>
+            <li>Database Design & Normalization</li>
+            <li>Query Optimization</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Security & Systems</h3>
+          <ul>
+            <li>Log Analysis (Splunk), SIEM Fundamentals</li>
+            <li>Intrusion Detection, Firewall Configuration (Fortinet)</li>
+            <li>Linux Environments, Windows Administration</li>
+            <li>TCP/IP, HTTP/HTTPS, Network Traffic Analysis</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="section">
+      <h2>Featured Projects</h2>
+      <div class="project-grid">
+        <!-- FinTrack -->
+        <article class="project-card">
+          <h3>FinTrack – Personal Finance Web App</h3>
+          <p class="project-tech">
+            React · Django · MySQL · REST APIs · JWT · UML
+          </p>
+          <p>
+            Full-stack web application for personal finance tracking. Implemented secure authentication,
+            MVC architecture, and RESTful APIs for financial transaction processing. Designed a normalized
+            relational database and optimized SQL queries to support real-time analytics and multi-user data
+            management.
+          </p>
+          <ul class="project-bullets">
+            <li>Led system modeling and design using UML and documentation best practices.</li>
+            <li>Implemented automated data validation and error handling for 99%+ data integrity.</li>
+            <li>Coordinated agile sprints and collaborative code reviews as modeling & design lead.</li>
+          </ul>
+          <div class="project-links">
+            <!-- Replace # with actual repo/demo URLs when ready -->
+            <a href="#" target="_blank" rel="noopener">View Code</a>
+            <a href="#" target="_blank" rel="noopener">Live Demo</a>
+          </div>
+        </article>
+
+        <!-- AI JobShield -->
+        <article class="project-card">
+          <h3>AI JobShield – Fake Job Posting Detector</h3>
+          <p class="project-tech">
+            Python · scikit-learn · Streamlit · NLP
+          </p>
+          <p>
+            End-to-end machine learning application that analyzes 17,000+ job postings and flags potential
+            fraud with ~85% accuracy. Built a full preprocessing pipeline (text normalization, feature
+            extraction) and tuned models via hyperparameter optimization.
+          </p>
+          <ul class="project-bullets">
+            <li>Engineered feature extraction and validation checks for reliable predictions.</li>
+            <li>Deployed an interactive Streamlit UI for non-technical users to test postings.</li>
+            <li>Documented experiment results and model selection decisions.</li>
+          </ul>
+          <div class="project-links">
+            <a href="#" target="_blank" rel="noopener">View Code</a>
+            <a href="#" target="_blank" rel="noopener">Live Demo</a>
+          </div>
+        </article>
+
+        <!-- Socket Servers -->
+        <article class="project-card">
+          <h3>Concurrent & Iterative Socket Servers</h3>
+          <p class="project-tech">
+            Java · Multi-threading · Networking · Linux
+          </p>
+          <p>
+            Implemented concurrent and iterative client-server architectures in Java using sockets and
+            threads to handle multiple simultaneous connections. Applied OOP design patterns to manage
+            server state and client sessions.
+          </p>
+          <ul class="project-bullets">
+            <li>Used Factory and Observer patterns for extensible server behaviors.</li>
+            <li>Designed custom message protocols with robust error handling.</li>
+            <li>Tested deployments in Linux environments with scripted scenarios.</li>
+          </ul>
+          <div class="project-links">
+            <a href="#" target="_blank" rel="noopener">View Code</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="section">
+      <h2>Experience</h2>
+      <div class="timeline">
+        <article class="timeline-item">
+          <h3>Programming Assistant – University of North Florida</h3>
+          <p class="timeline-meta">Feb 2024 – Present · Jacksonville, FL</p>
+          <ul>
+            <li>Supervise a high-traffic student game lab serving 900+ users each semester.</li>
+            <li>Provide first-line troubleshooting for account, software, and hardware issues.</li>
+            <li>Escalate technical problems and help maintain smooth operation of lab systems.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-item">
+          <h3>Data Analysis Assistant – SalesLand Colombia SAS</h3>
+          <p class="timeline-meta">Aug 2022 – Jan 2023 · Bogotá, Colombia (Remote/Hybrid)</p>
+          <ul>
+            <li>Developed automated data processing scripts in Python, reducing manual reporting time by 60%.</li>
+            <li>Improved recruitment selection efficiency by 4.8% via analytics-driven process optimization.</li>
+            <li>Ensured data accuracy and consistency with validation procedures and QA testing.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section section-contact">
+      <h2>Contact</h2>
+      <p>
+        I’m currently seeking opportunities in software engineering, security operations, and data-driven
+        roles where I can grow as an engineer and help build reliable systems.
+      </p>
+      <div class="contact-grid">
+        <div>
+          <h3>Direct</h3>
+          <ul>
+            <li>Email: <a href="mailto:N01482842@unf.edu">N01482842@unf.edu</a></li>
+            <li>Phone: <a href="tel:+19045978722">+1 (904) 597-8722</a></li>
+            <li>Location: Jacksonville, FL · Open to relocate</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Links</h3>
+          <ul>
+            <li><a href="https://github.com/AlejandroDoradoP2002" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/alejandrodorado" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="assets/AlejandroDoradoResume.pdf" target="_blank" rel="noopener">Download Résumé (PDF)</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Alejandro Dorado. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
