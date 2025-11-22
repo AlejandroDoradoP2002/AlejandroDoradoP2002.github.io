@@ -40,6 +40,17 @@ h5 {
   letter-spacing: 0.01em;
 }
 
+.focus-list {
+  margin: 10px 0 12px;
+  padding-left: 18px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.focus-list li + li {
+  margin-top: 5px;
+}
+
 
 /* NAVBAR */
 
@@ -159,6 +170,34 @@ main {
   gap: 12px;
   margin: 20px 0;
 }
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.hero-stat {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(55, 65, 81, 0.9);
+  background: radial-gradient(circle at top left, rgba(129, 140, 248, 0.16), rgba(15, 23, 42, 0.96));
+}
+
+.hero-stat-number {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #e5e7ff;
+}
+
+.hero-stat-label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
 
 .btn {
   display: inline-flex;
