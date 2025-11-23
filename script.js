@@ -1,4 +1,4 @@
-// Basic footer year
+// Footer year
 const yearSpan = document.getElementById("year");
 if (yearSpan) {
   yearSpan.textContent = new Date().getFullYear();
@@ -6,90 +6,60 @@ if (yearSpan) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector(".nav");
-  const navLinks = document.querySelectorAll(".nav-links a[href^='#']");
-  const sections = document.querySelectorAll("section[id]");
   const toTopBtn = document.getElementById("toTopBtn");
 
   /* ========================
-     Smooth Scroll for Nav
+     Smooth Scroll for #links
+     (e.g., hero buttons)
      ======================== */
-  navLinks.forEach((link) => {
+  const hashLinks = document.querySelectorAll("a[href^='#']");
+  hashLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
-      e.preventDefault();
       const targetId = link.getAttribute("href");
-      if (!targetId || !targetId.startsWith("#")) return;
+      if (!targetId || targetId === "#") return;
 
       const targetEl = document.querySelector(targetId);
       if (!targetEl) return;
 
+      e.preventDefault();
       const navHeight = nav ? nav.offsetHeight : 0;
-      const targetRect = targetEl.getBoundingClientRect();
-      const targetOffset = targetRect.top + window.pageYOffset - navHeight - 10;
+      const rect = targetEl.getBoundingClientRect();
+      const offset = rect.top + window.pageYOffset - navHeight - 10;
 
       window.scrollTo({
-        top: targetOffset,
+        top: offset,
         behavior: "smooth",
       });
     });
   });
 
   /* ========================
-     Active Nav on Scroll
-     ======================== */
-  const setActiveNav = (id) => {
-    navLinks.forEach((link) => {
-      const href = link.getAttribute("href");
-      if (href === `#${id}`) {
-        link.classList.add("active");
-      } else {
-        link.classList.remove("active");
-      }
-    });
-  };
-
-  const observerOptions = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.45,
-  };
-
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      const id = entry.target.getAttribute("id");
-      if (entry.isIntersecting && id) {
-        setActiveNav(id);
-      }
-    });
-  }, observerOptions);
-
-  sections.forEach((section) => sectionObserver.observe(section));
-
-  /* ========================
      Scroll Reveal Animation
      ======================== */
   const revealElements = document.querySelectorAll(".reveal-on-scroll");
+  if (revealElements.length) {
+    const revealObserver = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal-visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.35 }
+    );
 
-  const revealObserver = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("reveal-visible");
-          obs.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.35 }
-  );
-
-  revealElements.forEach((el) => revealObserver.observe(el));
+    revealElements.forEach((el) => revealObserver.observe(el));
+  }
 
   /* ========================
-     Back-to-Top Button
+     Back-to-Top & Nav Shadow
      ======================== */
   const handleScroll = () => {
     const scrollY = window.scrollY || window.pageYOffset;
 
-    // Toggle nav shadow/background
+    // Nav shadow / background
     if (nav) {
       if (scrollY > 10) {
         nav.classList.add("nav-scrolled");
@@ -98,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // Toggle back-to-top button
+    // Back-to-top visibility
     if (toTopBtn) {
       if (scrollY > 400) {
         toTopBtn.classList.add("show");
@@ -117,6 +87,62 @@ document.addEventListener("DOMContentLoaded", () => {
         top: 0,
         behavior: "smooth",
       });
+    });
+  }
+
+  /* ========================
+     Project Filters (projects.html)
+     ======================== */
+  const filterButtons = document.querySelectorAll(".filter-pill[data-filter]");
+  const projectCards = document.querySelectorAll(".project-card[data-tags]");
+
+  if (filterButtons.length && projectCards.length) {
+    filterButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const filter = btn.dataset.filter || "all";
+
+        // Active state
+        filterButtons.forEach((b) => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+
+        // Show / hide cards
+        projectCards.forEach((card) => {
+          const tagsRaw = card.dataset.tags || "";
+          const tags = tagsRaw.split(",").map((t) => t.trim());
+
+          if (filter === "all" || tags.includes(filter)) {
+            card.classList.remove("hidden-card");
+          } else {
+            card.classList.add("hidden-card");
+          }
+        });
+      });
+    });
+  }
+
+  /* ========================
+     Copy Email Button (index.html)
+     ======================== */
+  const copyBtn = document.getElementById("copyEmailBtn");
+  const copyStatus = document.getElementById("copyEmailStatus");
+
+  if (copyBtn && copyStatus && navigator.clipboard) {
+    copyBtn.addEventListener("click", async () => {
+      const email = copyBtn.dataset.email;
+      if (!email) return;
+
+      try {
+        await navigator.clipboard.writeText(email);
+        copyStatus.textContent = "Email copied!";
+        setTimeout(() => {
+          copyStatus.textContent = "";
+        }, 2000);
+      } catch (err) {
+        copyStatus.textContent = "Couldn’t copy, please copy manually.";
+        setTimeout(() => {
+          copyStatus.textContent = "";
+        }, 2500);
+      }
     });
   }
 });

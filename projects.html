@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Projects | Alejandro Dorado</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Detailed software, ML, and systems projects by Alejandro Dorado."
+  />
+
+  <!-- Fonts (same as index) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-left">
+      <img src="assets/logo.svg" alt="Alejandro Dorado logo" class="logo-img" />
+      <span class="nav-name">Alejandro Dorado</span>
+    </div>
+    <nav class="nav-links">
+      <!-- These links always bring you back to the main sections on index.html -->
+      <a href="index.html#about">About</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section reveal-on-scroll">
+      <h2>Projects</h2>
+      <p>
+        This page goes deeper into the projects I use to demonstrate real experience:
+        end-to-end apps, machine learning systems, and networked servers. These are the
+        kinds of projects technical recruiters and hiring managers consistently say
+        increase the chance of getting interviews: shipped work, measurable impact,
+        and alignment with real-world workflows.
+      </p>
+
+      <!-- Filter bar -->
+      <div class="filter-bar">
+        <button class="filter-pill is-active" type="button" data-filter="all">All</button>
+        <button class="filter-pill" type="button" data-filter="fullstack">Full-stack</button>
+        <button class="filter-pill" type="button" data-filter="ml">Machine Learning</button>
+        <button class="filter-pill" type="button" data-filter="systems">Systems</button>
+        <button class="filter-pill" type="button" data-filter="security">Security & Lab</button>
+      </div>
+
+      <!-- Project list -->
+      <div class="project-grid">
+        <!-- FinTrack -->
+        <article class="project-card" data-tags="fullstack">
+          <h3>FinTrack – Personal Finance Web App</h3>
+          <p class="project-tech">
+            Full-stack · React · Django · MySQL · REST · JWT
+          </p>
+          <p>
+            FinTrack is a full-stack web app that lets users track income, expenses, and balances over time.
+            It was built as a team project where I served as Modeling & Designing Lead, focusing on
+            system design, database schema, and backend/frontend integration.
+          </p>
+          <ul class="project-bullets">
+            <li>Designed the relational database schema and enforced normalized tables for clean data.</li>
+            <li>Helped define the API surface: authentication, transaction CRUD operations, and summaries.</li>
+            <li>Coordinated UML modeling, documentation, and integration between React frontend and Django API.</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/AlejandroDoradoP2002/fintrack" target="_blank" rel="noopener">
+              View Code
+            </a>
+            <!-- Replace # with live URL once deployed -->
+            <a href="#" aria-disabled="true">
+              Live demo (coming soon)
+            </a>
+          </div>
+        </article>
+
+        <!-- AI JobShield -->
+        <article class="project-card" data-tags="ml">
+          <h3>AI JobShield – Fake Job Posting Detector</h3>
+          <p class="project-tech">
+            ML & NLP · Python · scikit-learn · Streamlit
+          </p>
+          <p>
+            AI JobShield analyzes more than 17,000 job postings and predicts whether they are likely to be
+            fraudulent using NLP preprocessing and supervised learning. It exposes the model via a Streamlit UI
+            so non-technical users can experiment with real postings.
+          </p>
+          <ul class="project-bullets">
+            <li>Built a preprocessing pipeline for text normalization, tokenization, and vectorization.</li>
+            <li>Trained and evaluated models with accuracy, precision, recall, and F1-score metrics.</li>
+            <li>Integrated the final model into a Streamlit app for interactive testing and demonstration.</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/AlejandroDoradoP2002/ai-jobshield" target="_blank" rel="noopener">
+              View Code
+            </a>
+            <!-- Replace # with live URL once deployed -->
+            <a href="#" aria-disabled="true">
+              Live demo (coming soon)
+            </a>
+          </div>
+        </article>
+
+        <!-- Socket servers -->
+        <article class="project-card" data-tags="systems">
+          <h3>Concurrent & Iterative Socket Servers (Java)</h3>
+          <p class="project-tech">
+            Systems · Java · Multi-threading · Networking · Linux
+          </p>
+          <p>
+            This project implements both iterative and concurrent client–server architectures in Java using sockets
+            and threads. It focuses on understanding connection handling, shared state, and simple text-based protocols.
+          </p>
+          <ul class="project-bullets">
+            <li>Implemented a concurrent server that spawns a dedicated thread per client connection.</li>
+            <li>Defined a small protocol (PING, TIME, ECHO, QUIT) and documented expected behaviors.</li>
+            <li>Tested behavior with multiple clients on Linux environments and debugged connection edge cases.</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/AlejandroDoradoP2002/socket-servers" target="_blank" rel="noopener">
+              View Code
+            </a>
+          </div>
+        </article>
+
+        <!-- Security Lab (teaser pointing to lab page) -->
+        <article class="project-card" data-tags="security">
+          <h3>Security & Systems Lab (SOC-Focused)</h3>
+          <p class="project-tech">
+            Security · SOC · SIEM · Linux · Windows
+          </p>
+          <p>
+            I’m building a personal security lab to practice SOC workflows: log collection, alert triage,
+            and incident documentation. This includes Linux and Windows VMs, network monitoring, and plans
+            for tools like Splunk and firewalls.
+          </p>
+          <ul class="project-bullets">
+            <li>Goal: simulate real SOC workflows with logs from multiple systems and services.</li>
+            <li>Focus: log analysis, detection strategies, and writing clear incident reports.</li>
+            <li>Progress and roadmap are documented in a dedicated lab page.</li>
+          </ul>
+          <div class="project-links">
+            <a href="lab.html">
+              View Lab Page
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <button id="toTopBtn" class="to-top" aria-label="Back to top">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>

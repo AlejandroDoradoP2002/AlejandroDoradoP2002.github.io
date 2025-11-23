@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Security & Systems Lab | Alejandro Dorado</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Personal security and systems lab by Alejandro Dorado, focused on SOC workflows, log analysis, and networked environments."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-left">
+      <img src="assets/logo.svg" alt="Alejandro Dorado logo" class="logo-img" />
+      <span class="nav-name">Alejandro Dorado</span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section reveal-on-scroll">
+      <h2>Security & Systems Lab</h2>
+      <p>
+        The current CS job market puts a lot of weight on real, hands-on experience—especially for
+        security and infrastructure roles. This lab is my way of building that experience:
+        a controlled environment where I can practice SOC workflows, log analysis, and incident
+        response without touching production systems.
+      </p>
+    </section>
+
+    <section class="section reveal-on-scroll">
+      <h2>Current & Planned Environment</h2>
+      <ul class="focus-list">
+        <li><strong>Virtualization:</strong> Host machine running multiple VMs (Linux and Windows).</li>
+        <li><strong>Operating systems:</strong> Ubuntu Server, a Windows workstation/server VM.</li>
+        <li><strong>Security tools:</strong> Splunk (or similar SIEM), basic firewall configurations, and log generators.</li>
+        <li><strong>Networking:</strong> Simulated internal network traffic, SSH/RDP access, and basic hardening.</li>
+      </ul>
+      <p>
+        The goal is not just to “install tools,” but to understand how logs flow, how to build
+        useful dashboards and searches, and how alerts connect to real-world behaviors.
+      </p>
+    </section>
+
+    <section class="section reveal-on-scroll">
+      <h2>What I Practice in the Lab</h2>
+      <ul class="focus-list">
+        <li><strong>Log ingestion & normalization:</strong> getting logs from multiple systems into a single place and making them queryable.</li>
+        <li><strong>Detection strategies:</strong> building searches or alerts for suspicious patterns (failed logins, privilege changes, odd network behavior).</li>
+        <li><strong>Investigation workflow:</strong> following an alert from initial signal to root cause using available data.</li>
+        <li><strong>Reporting:</strong> writing small incident summaries that would make sense to a SOC lead or manager.</li>
+      </ul>
+    </section>
+
+    <section class="section reveal-on-scroll">
+      <h2>Roadmap</h2>
+      <ul class="focus-list">
+        <li>
+          <span class="status-pill in-progress">In progress</span>
+          Set up a base lab with Linux and Windows VMs and central logging.
+        </li>
+        <li>
+          <span class="status-pill planned">Planned</span>
+          Integrate a SIEM tool (Splunk, Graylog, or similar) and forward OS logs and application logs.
+        </li>
+        <li>
+          <span class="status-pill planned">Planned</span>
+          Simulate common attack patterns (brute force, suspicious processes, simple malware) in a safe environment.
+        </li>
+        <li>
+          <span class="status-pill planned">Planned</span>
+          Create a small “lab playbook” documenting detection, investigation, and reporting steps for each scenario.
+        </li>
+      </ul>
+      <p>
+        Over time, I plan to package parts of this lab into a public guide and/or GitHub repository so
+        other students can replicate it and practice similar skills.
+      </p>
+    </section>
+  </main>
+
+  <button id="toTopBtn" class="to-top" aria-label="Back to top">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>
