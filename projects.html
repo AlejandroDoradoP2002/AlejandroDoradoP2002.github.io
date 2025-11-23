@@ -22,17 +22,22 @@
 <body>
   <header class="nav">
     <div class="nav-left">
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <img src="assets/logo.png" alt="Alejandro Dorado logo" class="logo-img" />
         <span class="nav-name">Alejandro Dorado</span>
     </div>
     <nav class="nav-links">
-        <a href="index.html#about">About</a>
-        <a href="index.html#skills">Skills</a>
-        <a href="projects.html">All Projects</a>
-        <a href="lab.html">Lab</a>
-        <a href="writing.html">Writing</a>
-        <a href="index.html#experience">Experience</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="index.html#top" data-section="top">Home</a>
+        <a href="index.html#about" data-section="about">About</a>
+        <a href="index.html#skills" data-section="skills">Skills</a>
+        <a href="projects.html" data-page="projects">Projects</a>
+        <a href="lab.html" data-page="lab">Lab</a>
+        <a href="writing.html" data-page="writing">Writing</a>
+        <a href="index.html#contact" data-section="contact">Contact</a>
     </nav>
   </header>
   <main>
@@ -55,7 +60,7 @@
       <!-- Project list -->
       <div class="project-grid">
         <!-- FinTrack -->
-        <article class="project-card" data-tags="fullstack">
+        <article class="project-card" data-tags="fullstack" data-collapsible="true">
           <h3>FinTrack – Personal Finance Web App</h3>
           <p class="project-tech">
             Full-stack · React · Django · MySQL · REST · JWT
@@ -78,11 +83,12 @@
             <a href="#" aria-disabled="true">
               Live demo (coming soon)
             </a>
+            <button class="btn tertiary project-toggle" type="button">Show details</button>
           </div>
         </article>
 
         <!-- AI JobShield -->
-        <article class="project-card" data-tags="ml">
+        <article class="project-card" data-tags="ml" data-collapsible="true">
           <h3>AI JobShield – Fake Job Posting Detector</h3>
           <p class="project-tech">
             ML & NLP · Python · scikit-learn · Streamlit
@@ -105,11 +111,12 @@
             <a href="#" aria-disabled="true">
               Live demo (coming soon)
             </a>
+            <button class="btn tertiary project-toggle" type="button">Show details</button>
           </div>
         </article>
 
         <!-- Socket servers -->
-        <article class="project-card" data-tags="systems">
+        <article class="project-card" data-tags="systems" data-collapsible="true">
           <h3>Concurrent & Iterative Socket Servers (Java)</h3>
           <p class="project-tech">
             Systems · Java · Multi-threading · Networking · Linux
@@ -127,11 +134,12 @@
             <a href="https://github.com/AlejandroDoradoP2002/socket-servers" target="_blank" rel="noopener">
               View Code
             </a>
+            <button class="btn tertiary project-toggle" type="button">Show details</button>
           </div>
         </article>
 
         <!-- Security Lab (teaser pointing to lab page) -->
-        <article class="project-card" data-tags="security">
+        <article class="project-card" data-tags="security" data-collapsible="true">
           <h3>Security & Systems Lab (SOC-Focused)</h3>
           <p class="project-tech">
             Security · SOC · SIEM · Linux · Windows
@@ -154,14 +162,6 @@
         </article>
       </div>
       <div class="section-cta">
-        <a
-          href="assets/AlejandroDoradoResume.pdf"
-          class="btn secondary"
-          target="_blank"
-          rel="noopener"
-        >
-          View résumé (PDF)
-        </a>
         <a href="index.html#contact" class="btn primary">
           Contact me
         </a>

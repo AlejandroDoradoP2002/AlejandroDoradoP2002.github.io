@@ -6,11 +6,28 @@ if (yearSpan) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector(".nav");
+  const navToggle = document.querySelector(".nav-toggle");
+  const navLinks = document.querySelectorAll(".nav-links a");
   const toTopBtn = document.getElementById("toTopBtn");
 
   /* ========================
-     Smooth Scroll for #links
-     (e.g., hero buttons)
+     Mobile nav toggle
+     ======================== */
+  if (nav && navToggle) {
+    navToggle.addEventListener("click", () => {
+      nav.classList.toggle("nav-open");
+    });
+
+    // Close nav when clicking a link (on mobile)
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("nav-open");
+      });
+    });
+  }
+
+  /* ========================
+     Smooth Scroll for # links
      ======================== */
   const hashLinks = document.querySelectorAll("a[href^='#']");
   hashLinks.forEach((link) => {
@@ -54,6 +71,40 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ========================
+     Scrollspy active nav link
+     ======================== */
+  const sectionLinks = [];
+  navLinks.forEach((link) => {
+    const sectionId = link.dataset.section;
+    if (sectionId) {
+      const target = document.getElementById(sectionId);
+      if (target) {
+        sectionLinks.push({ link, target });
+      }
+    }
+  });
+
+  const updateActiveNav = () => {
+    if (!sectionLinks.length) return;
+
+    const scrollY = window.scrollY || window.pageYOffset;
+    const navHeight = nav ? nav.offsetHeight : 0;
+    const triggerLine = scrollY + navHeight + 60;
+
+    let current = null;
+    sectionLinks.forEach(({ link, target }) => {
+      const rect = target.getBoundingClientRect();
+      const top = rect.top + scrollY;
+      if (top <= triggerLine) {
+        current = link;
+      }
+    });
+
+    navLinks.forEach((a) => a.classList.remove("active"));
+    if (current) current.classList.add("active");
+  };
+
+  /* ========================
      Back-to-Top & Nav Shadow
      ======================== */
   const handleScroll = () => {
@@ -76,6 +127,8 @@ document.addEventListener("DOMContentLoaded", () => {
         toTopBtn.classList.remove("show");
       }
     }
+
+    updateActiveNav();
   };
 
   window.addEventListener("scroll", handleScroll);
@@ -145,4 +198,87 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  /* ========================
+     Hero Focus Switch (index.html)
+     ======================== */
+  const heroTitle = document.getElementById("heroTitle");
+  const heroSubtitle = document.getElementById("heroSubtitle");
+  const focusPills = document.querySelectorAll(".hero-focus-pill");
+
+  const focusModes = {
+    swe: {
+      title: "Building robust, production-ready software systems.",
+      subtitle:
+        "I’m Alejandro, a CS student at UNF who enjoys taking features from design to deployment: APIs, data models, and clean, maintainable backend code.",
+    },
+    security: {
+      title: "Thinking like an engineer and a defender.",
+      subtitle:
+        "I’m focused on security operations, logging, and reliable systems—building a personal SOC-style lab and working with tools like Splunk and firewalls.",
+    },
+    data: {
+      title: "Turning messy data into decisions.",
+      subtitle:
+        "I’ve worked on analytics and ML projects that automate reporting, detect fake job postings, and make it easier to see where time and money go.",
+    },
+  };
+
+  if (heroTitle && heroSubtitle && focusPills.length) {
+    focusPills.forEach((pill) => {
+      pill.addEventListener("click", () => {
+        const mode = pill.dataset.mode;
+        if (!mode || !focusModes[mode]) return;
+
+        // Active UI
+        focusPills.forEach((p) => p.classList.remove("is-active"));
+        pill.classList.add("is-active");
+
+        // Update text
+        heroTitle.textContent = focusModes[mode].title;
+        heroSubtitle.textContent = focusModes[mode].subtitle;
+      });
+    });
+  }
+
+  /* ========================
+     Project details toggle
+     ======================== */
+  const toggleButtons = document.querySelectorAll(".project-toggle");
+
+  if (toggleButtons.length) {
+    toggleButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const card = btn.closest(".project-card");
+        if (!card) return;
+
+        const isExpanded = card.classList.toggle("is-expanded");
+        btn.textContent = isExpanded ? "Hide details" : "Show details";
+      });
+    });
+  }
+
+  /* ========================
+     Parallax tilt effect
+     ======================== */
+  const parallaxElems = document.querySelectorAll(".parallax-tilt");
+
+  parallaxElems.forEach((el) => {
+    el.addEventListener("pointermove", (e) => {
+      const rect = el.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const midX = rect.width / 2;
+      const midY = rect.height / 2;
+
+      const rotateX = ((y - midY) / midY) * -4; // tilt range
+      const rotateY = ((x - midX) / midX) * 4;
+
+      el.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(0)`;
+    });
+
+    el.addEventListener("pointerleave", () => {
+      el.style.transform = "rotateX(0deg) rotateY(0deg)";
+    });
+  });
 });
