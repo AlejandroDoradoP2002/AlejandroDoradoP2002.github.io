@@ -19,18 +19,20 @@
 <body>
   <header class="nav">
     <div class="nav-left">
-        <img src="assets/logo.png" alt="Alejandro Dorado logo" class="logo-img" />
-        <span class="nav-name">ALEJANDRO DORADO</span>
+        <img src="assets/logo.svg" alt="Alejandro Dorado logo" class="logo-img" />
+        <span class="nav-name">Alejandro Dorado</span>
     </div>
     <nav class="nav-links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="projects.html">All Projects</a>
+        <a href="lab.html">Lab</a>
+        <a href="writing.html">Writing</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
     </nav>
   </header>
-
   <main>
     <!-- HERO SECTION -->
     <section class="hero reveal-on-scroll" id="top">
@@ -153,6 +155,14 @@
             <li>TCP/IP, HTTP/HTTPS, Network Traffic Analysis</li>
           </ul>
         </div>
+        <div class="skill-card">
+          <h3>How I Add Value</h3>
+          <ul>
+            <li>Translate requirements into clear technical tasks.</li>
+            <li>Own features end-to-end from design to deployment.</li>
+            <li>Communicate trade-offs and document decisions.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -232,7 +242,43 @@
         <a href="projects.html" class="btn secondary">Open full projects page</a>
       </div>
     </section>
-
+    <section id="how-i-work" class="section reveal-on-scroll">
+        <h2>How I Work</h2>
+        <p>
+            Whether I’m building a full-stack app, training a model, or wiring a server,
+            I follow a similar process focused on clarity, reliability, and measurable outcomes.
+        </p>
+        <div class="process-grid">
+          <article class="process-step">
+            <h3>1. Understand the problem</h3>
+            <p>
+                Start with the real workflow or pain point: who uses this, what “done”
+                looks like, and what constraints we have (time, data, infra, security).
+            </p>
+          </article>
+          <article class="process-step">
+            <h3>2. Design before coding</h3>
+            <p>
+                Sketch APIs, data models, and architecture. For larger work, I use UML,
+                diagrams, and small design docs before touching the keyboard.
+            </p>
+          </article>
+          <article class="process-step">
+            <h3>3. Build iteratively</h3>
+            <p>
+                Ship in small slices: get an end-to-end version working, then layer in
+                tests, hardening, and performance improvements.
+            </p>
+          </article>
+          <article class="process-step">
+            <h3>4. Measure & refine</h3>
+            <p>
+                Look at metrics (latency, errors, user behavior, time saved) and use
+                them to decide what to improve next, instead of guessing.
+            </p>
+          </article>
+        </div>
+    </section>
     <!-- EXPERIENCE SECTION -->
     <section id="experience" class="section reveal-on-scroll">
       <h2>Experience</h2>
@@ -258,7 +304,33 @@
         </article>
       </div>
     </section>
-
+    <section id="achievements" class="section reveal-on-scroll">
+        <h2>Selected Achievements</h2>
+        <div class="achievements-grid">
+            <article class="achievement-card">
+                <h3>Academic</h3>
+                <p>
+                    B.S. Computer Science at the University of North Florida (expected Dec 2025).
+                    President’s List & Dean’s List; full LAC Scholarship recipient.
+                </p>
+            </article>
+            <article class="achievement-card">
+                <h3>Impact & Metrics</h3>
+                <p>
+                    Built systems that analyze 17k+ job postings, reduced manual reporting
+                    time by ~60%, improved recruitment efficiency by ~4.8%, and support
+                    900+ lab users each semester.
+                </p>
+            </article>
+            <article class="achievement-card">
+                <h3>Security & Learning</h3>
+                <p>
+                    Completed CS50 Cybersecurity, Splunk Fundamentals 1, Fortinet NSE 1–2 (in progress),
+                    and actively build a personal security lab to practice SOC workflows.
+                </p>
+            </article>
+        </div>
+    </section>
     <!-- CONTACT SECTION -->
     <section id="contact" class="section section-contact reveal-on-scroll">
       <h2>Contact</h2>
@@ -295,8 +367,19 @@
         </div>
       </div>
     </section>
+    <section id="insights" class="section reveal-on-scroll">
+      <h2>Writing & Insights</h2>
+        <p>
+            I occasionally write about the CS job market, security, and early-career strategy—
+            especially how to build projects that translate into real opportunities instead of
+            just checking boxes.
+        </p>
+        <p>
+            You can read more on my
+            <a href="writing.html">Writing &amp; Insights page</a>.
+        </p>
+    </section>
   </main>
-
   <footer class="footer">
     <p>© <span id="year"></span> Alejandro Dorado. All rights reserved.</p>
   </footer>
