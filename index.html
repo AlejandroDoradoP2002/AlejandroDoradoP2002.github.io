@@ -28,75 +28,44 @@
         <span class="nav-name">Alejandro Dorado</span>
     </div>
     <nav class="nav-links">
-        <a href="index.html#top" data-section="top">Home</a>
-        <a href="index.html#about" data-section="about">About</a>
-        <a href="index.html#skills" data-section="skills">Skills</a>
-        <a href="projects.html" data-page="projects">Projects</a>
-        <a href="lab.html" data-page="lab">Lab</a>
-        <a href="writing.html" data-page="writing">Writing</a>
-        <a href="index.html#contact" data-section="contact">Contact</a>
+      <a href="index.html" data-page="home">Home</a>
+      <a href="about.html" data-page="about">About</a>
+      <a href="skills.html" data-page="skills">Skills</a>
+      <a href="projects.html" data-page="projects">Projects</a>
+      <a href="lab.html" data-page="lab">Lab</a>
+      <a href="writing.html" data-page="writing">Writing</a>
+      <a href="contact.html" data-page="contact">Contact</a>
     </nav>
   </header>
   <main>
     <!-- HERO SECTION -->
-    <section class="hero" id="top">
+    <section class="hero home-hero" id="top">
       <div class="hero-text">
         <p class="hero-kicker">Computer Science @ UNF · Graduation Dec 2025</p>
         <h1 id="heroTitle">Building secure and data-driven software systems.</h1>
         <p class="hero-subtitle" id="heroSubtitle">
-            I’m Alejandro, a Computer Science student at the University of North Florida,
-            with experience in full-stack web apps, machine learning, and networked systems.
+          I build secure, data-driven applications and systems — from backend services to ML models.
         </p>
         <div class="hero-actions">
-          <a href="#projects" class="btn primary">View Projects</a>
-          <a href="#contact" class="btn secondary">Contact Me</a>
+          <a href="projects.html" class="btn primary">View Projects</a>
+          <a href="contact.html" class="btn secondary">Contact Me</a>
         </div>
-        <div class="hero-focus">
-          <span class="hero-focus-label">Focus:</span>
-          <button class="hero-focus-pill is-active" type="button" data-mode="swe">
-            Software Engineering
-          </button>
-          <button class="hero-focus-pill" type="button" data-mode="security">
-            Security / SOC
-          </button>
-          <button class="hero-focus-pill" type="button" data-mode="data">
-            Data &amp; Analytics
-          </button>
-        </div>
+        <!-- hero meta kept minimal on home -->
         <div class="hero-meta">
           <span>Jacksonville, FL</span>
-          <span>English · Spanish · German</span>
+          <span>English · Spanish</span>
         </div>
       </div>
-      <div class="hero-stats">
-        <div class="hero-stat">
-            <span class="hero-stat-number">17k+</span>
-            <span class="hero-stat-label">job posts analyzed (AI JobShield)</span>
-        </div>
-        <div class="hero-stat">
-            <span class="hero-stat-number">60%</span>
-            <span class="hero-stat-label">manual reporting time reduced</span>
-        </div>
-        <div class="hero-stat">
-            <span class="hero-stat-number">4.8%</span>
-            <span class="hero-stat-label">recruitment efficiency improvement</span>
-        </div>
-        <div class="hero-stat">
-            <span class="hero-stat-number">900+</span>
-            <span class="hero-stat-label">lab users supported / semester</span>
-        </div>
-      </div>
-      <div class="hero-card">
+        <!-- hero-stats moved to Snapshot section for clearer overview -->
+      <aside class="hero-card home-profile-card">
         <div class="hero-avatar">
             <img src="assets/profile.png" alt="Photo of Alejandro Dorado" />
         </div>
-        <h2>Quick Facts</h2>
+        <h3>Quick facts</h3>
         <ul>
-            <li>B.S. Computer Science – University of North Florida (Jan 2021 – Dec 2025)</li>
-            <li>GPA 3.75 · President’s List & Dean’s List · Full LAC Scholarship Recipient</li>
-            <li>F-1 student · OPT-eligible from Dec 2025 · Open to relocate in the U.S.</li>
-            <li>Target roles: SOC Analyst, Software Engineer, and Data-focused positions.</li>
-            <li>I enjoy shipping real projects, mentoring classmates, and building secure, reliable systems.</li>
+          <li>UNF — B.S. Computer Science (Dec 2025)</li>
+          <li>GPA 3.75 · President's List</li>
+          <li>OPT-eligible · Open to relocate</li>
         </ul>
         <div class="hero-links">
             <a href="https://github.com/AlejandroDoradoP2002" target="_blank" rel="noopener">GitHub</a>
@@ -104,40 +73,37 @@
         </div>
     </div>
     </section>
-    <!-- ABOUT SECTION -->
-    <section id="about" class="section reveal-on-scroll">
-      <h2>About Me</h2>
-      <p>
-        I’m a Computer Science student at the University of North Florida with a strong foundation in
-        data structures and algorithms, object-oriented programming, computer networks, systems programming,
-        and intrusion detection. I enjoy building end-to-end solutions that combine clean engineering,
-        data-driven insights, and security best practices.
-      </p>
-      <p>
-        I’ve led a full-stack personal finance web app (FinTrack), built a machine learning system to detect
-        fake job postings (AI JobShield), and implemented concurrent socket servers in Java. I’m actively
-        involved in the Osprey Security Club and IEEE Upsilon Pi Epsilon, and I’m pursuing CompTIA Security+.
-      </p>
-    </section>
-    <section id="focus" class="section reveal-on-scroll">
-        <h2>Career Focus & How I Think About the Market</h2>
-        <p>
-            The current CS job market is crowded and highly selective, especially for entry-level roles. 
-            Instead of relying only on grades, I’m focusing on three things that I’ve learned matter most:
-        </p>
-        <ul class="focus-list">
-            <li><strong>Real, shipped projects:</strong> full-stack apps, machine learning systems, and networked services that solve concrete problems.</li>
-            <li><strong>Domain experience:</strong> security operations (SIEM, log analysis, intrusion detection), data analytics, and backend engineering.</li>
-            <li><strong>Impact and reliability:</strong> measurable improvements like reduced manual work, better process efficiency, and systems that keep running.</li>
-        </ul>
-        <p>
-            I’m open to roles in software engineering, security operations (SOC), and data-focused positions—particularly in teams that value ownership, learning, and long-term impact over short-term hype.
-        </p>
+    <!-- SNAPSHOT / HIGHLIGHTS -->
+    <section id="snapshot" class="section reveal-on-scroll">
+      <h2>Snapshot</h2>
+      <p class="section-intro">A concise overview of what I build and the outcomes I deliver.</p>
+      <div class="snapshot-grid">
+        <article class="highlight-card">
+          <div class="highlight-label">Impact</div>
+          <div class="highlight-value">17k+</div>
+          <div class="highlight-text">Job postings analyzed (AI JobShield)</div>
+        </article>
+        <article class="highlight-card">
+          <div class="highlight-label">Efficiency</div>
+          <div class="highlight-value">60%</div>
+          <div class="highlight-text">Manual reporting time reduced</div>
+        </article>
+        <article class="highlight-card">
+          <div class="highlight-label">Optimization</div>
+          <div class="highlight-value">4.8%</div>
+          <div class="highlight-text">Recruitment selection efficiency</div>
+        </article>
+        <article class="highlight-card">
+          <div class="highlight-label">Scale</div>
+          <div class="highlight-value">900+</div>
+          <div class="highlight-text">Lab users supported / semester</div>
+        </article>
+      </div>
     </section>
     <!-- SKILLS SECTION -->
     <section id="skills" class="section reveal-on-scroll">
       <h2>Skills</h2>
-      <div class="skills-grid">
+      <div class="skills-grid skills-grid--home">
         <div class="skill-card">
           <h3>Programming & Development</h3>
           <ul>
@@ -171,14 +137,10 @@
             <li>TCP/IP, HTTP/HTTPS, Network Traffic Analysis</li>
           </ul>
         </div>
-        <div class="skill-card">
-          <h3>How I Add Value</h3>
-          <ul>
-            <li>Translate requirements into clear technical tasks.</li>
-            <li>Own features end-to-end from design to deployment.</li>
-            <li>Communicate trade-offs and document decisions.</li>
-          </ul>
-        </div>
+        <!-- Removed 'How I Add Value' card from home — summary exists on About page -->
+      </div>
+      <div class="section-cta">
+        <a href="skills.html" class="btn secondary">View full skills</a>
       </div>
     </section>
 
@@ -189,7 +151,7 @@
         Here are a few representative projects. For a deeper breakdown, live demos, and more
         technical notes, visit the full projects page.
       </p>
-      <div class="project-grid">
+      <div class="project-grid project-grid--home">
         <!-- FinTrack -->
         <article class="project-card parallax-tilt" data-tags="fullstack" data-collapsible="true">
           <h3>FinTrack – Personal Finance Web App</h3>
@@ -261,42 +223,13 @@
         <a href="projects.html" class="btn secondary">Open full projects page</a>
       </div>
     </section>
+    <!-- How I Work summary moved to About page. Short CTA below. -->
     <section id="how-i-work" class="section reveal-on-scroll">
-        <h2>How I Work</h2>
-        <p>
-            Whether I’m building a full-stack app, training a model, or wiring a server,
-            I follow a similar process focused on clarity, reliability, and measurable outcomes.
-        </p>
-        <div class="process-grid">
-          <article class="process-step">
-            <h3>1. Understand the problem</h3>
-            <p>
-                Start with the real workflow or pain point: who uses this, what “done”
-                looks like, and what constraints we have (time, data, infra, security).
-            </p>
-          </article>
-          <article class="process-step">
-            <h3>2. Design before coding</h3>
-            <p>
-                Sketch APIs, data models, and architecture. For larger work, I use UML,
-                diagrams, and small design docs before touching the keyboard.
-            </p>
-          </article>
-          <article class="process-step">
-            <h3>3. Build iteratively</h3>
-            <p>
-                Ship in small slices: get an end-to-end version working, then layer in
-                tests, hardening, and performance improvements.
-            </p>
-          </article>
-          <article class="process-step">
-            <h3>4. Measure & refine</h3>
-            <p>
-                Look at metrics (latency, errors, user behavior, time saved) and use
-                them to decide what to improve next, instead of guessing.
-            </p>
-          </article>
-        </div>
+      <h2>How I work</h2>
+      <p class="section-intro">I break problems into clear tasks, design before coding, ship iteratively, and measure the results.</p>
+      <div class="section-cta">
+        <a href="about.html" class="btn secondary">Read more about my process</a>
+      </div>
     </section>
     <!-- EXPERIENCE SECTION -->
     <section id="experience" class="section reveal-on-scroll">
@@ -306,9 +239,8 @@
           <h3>Programming Assistant – University of North Florida</h3>
           <p class="timeline-meta">Feb 2024 – Present · Jacksonville, FL</p>
           <ul>
-            <li>Supervise a high-traffic student game lab serving 900+ users each semester.</li>
-            <li>Provide first-line troubleshooting for account, software, and hardware issues.</li>
-            <li>Escalate technical problems and help maintain smooth operation of lab systems.</li>
+            <li>Supervise a high-traffic student game lab supporting 900+ users per semester.</li>
+            <li>Provide first-line troubleshooting and system support for lab users.</li>
           </ul>
         </article>
 
@@ -316,86 +248,27 @@
           <h3>Data Analysis Assistant – SalesLand Colombia SAS</h3>
           <p class="timeline-meta">Aug 2022 – Jan 2023 · Bogotá, Colombia (Remote/Hybrid)</p>
           <ul>
-            <li>Developed automated data processing scripts in Python, reducing manual reporting time by 60%.</li>
-            <li>Improved recruitment selection efficiency by 4.8% via analytics-driven process optimization.</li>
-            <li>Ensured data accuracy and consistency with validation procedures and QA testing.</li>
+            <li>Automated reporting scripts in Python — reduced manual effort by 60%.</li>
+            <li>Optimized analytics for recruitment selection, improving efficiency by 4.8%.</li>
           </ul>
         </article>
       </div>
     </section>
-    <section id="achievements" class="section reveal-on-scroll">
-        <h2>Selected Achievements</h2>
-        <div class="achievements-grid">
-            <article class="achievement-card">
-                <h3>Academic</h3>
-                <p>
-                    B.S. Computer Science at the University of North Florida (expected Dec 2025).
-                    President’s List & Dean’s List; full LAC Scholarship recipient.
-                </p>
-            </article>
-            <article class="achievement-card">
-                <h3>Impact & Metrics</h3>
-                <p>
-                    Built systems that analyze 17k+ job postings, reduced manual reporting
-                    time by ~60%, improved recruitment efficiency by ~4.8%, and support
-                    900+ lab users each semester.
-                </p>
-            </article>
-            <article class="achievement-card">
-                <h3>Security & Learning</h3>
-                <p>
-                    Completed CS50 Cybersecurity, Splunk Fundamentals 1, Fortinet NSE 1–2 (in progress),
-                    and actively build a personal security lab to practice SOC workflows.
-                </p>
-            </article>
-        </div>
-    </section>
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="section section-contact reveal-on-scroll">
-      <h2>Contact</h2>
-      <p>
-        I’m currently seeking opportunities in software engineering, security operations, and data-driven
-        roles where I can grow as an engineer and help build reliable systems.
-      </p>
-      <div class="contact-grid">
+    <!-- Achievements moved to subpages (About / Writing) to avoid duplication on home -->
+    <section id="connect" class="section reveal-on-scroll">
+      <h2>Writing & Contact</h2>
+      <div class="connect-grid">
         <div>
-          <h3>Direct</h3>
-          <ul>
-            <li>Email: <a href="mailto:N01482842@unf.edu">N01482842@unf.edu</a></li>
-            <li>Phone: <a href="tel:+19045978722">+1 (904) 597-8722</a></li>
-            <li>Location: Jacksonville, FL · Open to relocate</li>
-          </ul>
-
-          <button
-            id="copyEmailBtn"
-            class="btn secondary btn-small"
-            type="button"
-            data-email="N01482842@unf.edu"
-          >
-            Copy email
-          </button>
-          <span id="copyEmailStatus" class="copy-status" aria-live="polite"></span>
+          <h3>Thoughts on the CS market</h3>
+          <p class="section-intro">Short notes and essays about career strategy, security, and project-driven learning.</p>
+          <a href="writing.html" class="btn secondary">Read writing & insights</a>
         </div>
         <div>
-          <h3>Links</h3>
-          <ul>
-            <li><a href="https://github.com/AlejandroDoradoP2002" target="_blank" rel="noopener">GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/alejandrodorado" target="_blank" rel="noopener">LinkedIn</a></li>
-          </ul>
+          <h3>Let's talk</h3>
+          <p class="section-intro">Open to new opportunities: SOC, software engineering, data roles. Reach out and we can chat.</p>
+          <a href="contact.html" class="btn primary">Contact me</a>
         </div>
       </div>
-    </section>
-    <section id="insights" class="section reveal-on-scroll">
-      <h2>Writing & Insights</h2>
-        <p>
-            I occasionally write about the CS job market, security, and early career strategy, 
-            especially how to build projects that translate into real opportunities instead of
-            just checking boxes.
-        </p>
-        <p>
-            You can read more on my
-            <a href="writing.html">Writing &amp; Insights page</a>.
-        </p>
     </section>
   </main>
   <footer class="footer">
