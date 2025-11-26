@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* <CHANGE> Custom theme for Alejandro Dorado portfolio - dark navy with teal/cyan accents */
+  /* Custom theme for Alejandro Dorado portfolio - dark navy with teal/cyan accents */
   --background: oklch(0.12 0.02 240);
   --foreground: oklch(0.95 0.01 240);
   --card: oklch(0.17 0.02 240);
@@ -130,7 +130,7 @@
   }
 }
 
-/* <CHANGE> Custom gradient utilities for interactive elements */
+/* Custom gradient utilities for interactive elements */
 @layer utilities {
   .gradient-primary {
     background: var(--gradient-primary);
@@ -149,5 +149,56 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+
+  /* Add custom animations for enhanced interactivity */
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 6s ease-in-out 3s infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) translateX(0);
+    }
+    33% {
+      transform: translateY(-20px) translateX(10px);
+    }
+    66% {
+      transform: translateY(10px) translateX(-10px);
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-slow {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
   }
 }
