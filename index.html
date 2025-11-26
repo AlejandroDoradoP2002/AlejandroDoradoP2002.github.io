@@ -2,282 +2,1160 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Alejandro Dorado | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="Portfolio of Alejandro Dorado, Computer Science student at UNF with projects in web development, machine learning, and systems programming."
-  />
+  <title>Alejandro Dorado | Computer Science Student & Software Engineer</title>
+  <meta name="description" content="Portfolio of Alejandro Dorado, Computer Science student at UNF specializing in full-stack development, machine learning, and security operations." />
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap"
-    rel="stylesheet"
-  >
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #111111;
+      --bg-tertiary: #1a1a1a;
+      --accent-primary: #3b82f6;
+      --accent-secondary: #8b5cf6;
+      --accent-glow: rgba(59, 130, 246, 0.3);
+      --text-primary: #ffffff;
+      --text-secondary: #a3a3a3;
+      --text-tertiary: #737373;
+      --border-color: #262626;
+      --success: #10b981;
+      --warning: #f59e0b;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Background gradients */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+      animation: rotate 60s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    h1 { font-size: clamp(2.5rem, 6vw, 4rem); }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); }
+    h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
+
+    /* Header & Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled {
+      background: rgba(10, 10, 10, 0.95);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      padding: 4rem 0;
+      position: relative;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-text {
+      animation: fadeInUp 0.8s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 50px;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--success);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .hero h1 {
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ffffff 0%, #a3a3a3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.75rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      color: white;
+      box-shadow: 0 4px 15px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--accent-glow);
+    }
+
+    .btn-secondary {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-tertiary);
+      border-color: var(--accent-primary);
+    }
+
+    /* Hero Card */
+    .hero-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      animation: fadeIn 1s ease 0.3s both;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .profile-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--accent-primary);
+      box-shadow: 0 0 30px var(--accent-glow);
+      margin: 0 auto 1.5rem;
+      object-fit: cover;
+    }
+
+    .hero-card h3 {
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .hero-card-list {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-card-list li {
+      padding: 0.5rem 0;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero-card-list li::before {
+      content: '✓';
+      color: var(--accent-primary);
+      font-weight: bold;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--accent-primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Stats Section */
+    .stats {
+      padding: 3rem 0;
+      margin: 2rem 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .stat-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-primary);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* Section */
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 50px;
+      font-size: 0.875rem;
+      color: var(--accent-primary);
+      margin-bottom: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .section-title {
+      margin-bottom: 1rem;
+    }
+
+    .section-description {
+      color: var(--text-secondary);
+      font-size: 1.125rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .skill-card:hover {
+      border-color: var(--accent-primary);
+      transform: translateY(-4px);
+    }
+
+    .skill-card h3 {
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+      color: var(--text-primary);
+    }
+
+    .skill-card ul {
+      list-style: none;
+    }
+
+    .skill-card li {
+      padding: 0.5rem 0;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .skill-card li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent-primary);
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent-primary);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .project-header {
+      margin-bottom: 1rem;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .tag {
+      padding: 0.25rem 0.75rem;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      color: var(--accent-primary);
+      font-weight: 500;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .project-card h3 {
+      margin-bottom: 0.75rem;
+      font-size: 1.5rem;
+    }
+
+    .project-description {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      flex-grow: 1;
+      font-size: 0.95rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: auto;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .project-link:hover {
+      background: var(--accent-primary);
+      color: white;
+      border-color: var(--accent-primary);
+    }
+
+    /* Experience Timeline */
+    .timeline {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      padding-left: 3rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 3rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -3.5rem;
+      top: 0;
+      width: 12px;
+      height: 12px;
+      background: var(--accent-primary);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px var(--bg-primary), 0 0 0 6px var(--accent-primary);
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+    }
+
+    .timeline-meta {
+      color: var(--text-tertiary);
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .timeline-item ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .timeline-item li {
+      color: var(--text-secondary);
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .timeline-item li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--accent-primary);
+    }
+
+    /* Contact Section */
+    .contact-content {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-content p {
+      color: var(--text-secondary);
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-methods {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .contact-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      flex: 1;
+      min-width: 200px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-card:hover {
+      border-color: var(--accent-primary);
+      transform: translateY(-4px);
+    }
+
+    .contact-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-card a {
+      color: var(--accent-primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 3rem 0;
+      text-align: center;
+      color: var(--text-tertiary);
+      font-size: 0.875rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline {
+        padding-left: 2rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      nav {
+        padding: 1rem;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 2rem 0;
+      }
+
+      section {
+        padding: 3rem 0;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* Scroll to top button */
+    .scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      background: var(--accent-primary);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    .scroll-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-top:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px var(--accent-glow);
+    }
+  </style>
 </head>
 <body>
-  <header class="nav">
-    <div class="nav-left">
-        <button class="nav-toggle" type="button" aria-label="Toggle navigation">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <img src="assets/logo.png" alt="Alejandro Dorado logo" class="logo-img" />
-        <span class="nav-name">Alejandro Dorado</span>
-    </div>
-    <nav class="nav-links">
-      <a href="index.html" data-page="home">Home</a>
-      <a href="about.html" data-page="about">About</a>
-      <a href="skills.html" data-page="skills">Skills</a>
-      <a href="projects.html" data-page="projects">Projects</a>
-      <a href="lab.html" data-page="lab">Lab</a>
-      <a href="writing.html" data-page="writing">Writing</a>
-      <a href="contact.html" data-page="contact">Contact</a>
+  <!-- Header -->
+  <header id="header">
+    <nav class="container">
+      <div class="logo">AD</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="mobile-menu-btn" aria-label="Menu">☰</button>
     </nav>
   </header>
-  <main>
-    <!-- HERO SECTION -->
-    <section class="hero home-hero" id="top">
-      <div class="hero-text">
-        <p class="hero-kicker">Computer Science @ UNF · Graduation Dec 2025</p>
-        <h1 id="heroTitle">Building secure and data-driven software systems.</h1>
-        <p class="hero-subtitle" id="heroSubtitle">
-          I build secure, data-driven applications and systems — from backend services to ML models.
-        </p>
-        <div class="hero-actions">
-          <a href="projects.html" class="btn primary">View Projects</a>
-          <a href="contact.html" class="btn secondary">Contact Me</a>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-badge">
+            <span class="status-dot"></span>
+            Available for opportunities
+          </div>
+          <h1>Building secure and data-driven software systems.</h1>
+          <p class="hero-subtitle">
+            Computer Science student at UNF passionate about creating robust applications 
+            — from backend services and APIs to machine learning models and security operations.
+          </p>
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">
+              <span>View Projects</span>
+              <span>→</span>
+            </a>
+            <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+          </div>
         </div>
-        <!-- hero meta kept minimal on home -->
-        <div class="hero-meta">
-          <span>Jacksonville, FL</span>
-          <span>English · Spanish</span>
+
+        <div class="hero-card">
+          <img src="/placeholder.svg?height=120&width=120" alt="Alejandro Dorado" class="profile-image" />
+          <h3>Alejandro Dorado</h3>
+          <ul class="hero-card-list">
+            <li>UNF CS Student (Dec 2025)</li>
+            <li>GPA 3.75 · President's List</li>
+            <li>Jacksonville, FL</li>
+            <li>OPT-eligible · Open to relocate</li>
+          </ul>
+          <div class="social-links">
+            <a href="https://github.com/AlejandroDoradoP2002" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/alejandrodorado" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="mailto:N01482842@unf.edu" aria-label="Email">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
+            </a>
+          </div>
         </div>
       </div>
-        <!-- hero-stats moved to Snapshot section for clearer overview -->
-      <aside class="hero-card home-profile-card">
-        <div class="hero-avatar">
-            <img src="assets/profile.png" alt="Photo of Alejandro Dorado" />
-        </div>
-        <h3>Quick facts</h3>
-        <ul>
-          <li>UNF — B.S. Computer Science (Dec 2025)</li>
-          <li>GPA 3.75 · President's List</li>
-          <li>OPT-eligible · Open to relocate</li>
-        </ul>
-        <div class="hero-links">
-            <a href="https://github.com/AlejandroDoradoP2002" target="_blank" rel="noopener">GitHub</a>
-            <a href="https://www.linkedin.com/in/alejandrodorado" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
     </div>
-    </section>
-    <!-- SNAPSHOT / HIGHLIGHTS -->
-    <section id="snapshot" class="section reveal-on-scroll">
-      <h2>Snapshot</h2>
-      <p class="section-intro">A concise overview of what I build and the outcomes I deliver.</p>
-      <div class="snapshot-grid">
-        <article class="highlight-card">
-          <div class="highlight-label">Impact</div>
-          <div class="highlight-value">17k+</div>
-          <div class="highlight-text">Job postings analyzed (AI JobShield)</div>
-        </article>
-        <article class="highlight-card">
-          <div class="highlight-label">Efficiency</div>
-          <div class="highlight-value">60%</div>
-          <div class="highlight-text">Manual reporting time reduced</div>
-        </article>
-        <article class="highlight-card">
-          <div class="highlight-label">Optimization</div>
-          <div class="highlight-value">4.8%</div>
-          <div class="highlight-text">Recruitment selection efficiency</div>
-        </article>
-        <article class="highlight-card">
-          <div class="highlight-label">Scale</div>
-          <div class="highlight-value">900+</div>
-          <div class="highlight-text">Lab users supported / semester</div>
-        </article>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-number">17K+</span>
+          <span class="stat-label">Job postings analyzed (AI JobShield)</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">60%</span>
+          <span class="stat-label">Manual reporting time reduced</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">900+</span>
+          <span class="stat-label">Lab users supported / semester</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">3.75</span>
+          <span class="stat-label">GPA · President's List</span>
+        </div>
       </div>
-    </section>
-    <!-- SKILLS SECTION -->
-    <section id="skills" class="section reveal-on-scroll">
-      <h2>Skills</h2>
-      <div class="skills-grid skills-grid--home">
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Expertise</span>
+        <h2 class="section-title">Skills & Technologies</h2>
+        <p class="section-description">
+          Full-stack development, machine learning, and security operations with modern tools and frameworks.
+        </p>
+      </div>
+
+      <div class="skills-grid">
         <div class="skill-card">
           <h3>Programming & Development</h3>
           <ul>
-            <li>Java, Python, JavaScript, HTML/CSS</li>
+            <li>Java, Python, JavaScript</li>
+            <li>HTML/CSS, React, Django</li>
+            <li>Object-Oriented Design</li>
             <li>Bash/Shell Scripting</li>
-            <li>Object-Oriented Design & SDLC</li>
+            <li>REST APIs, JWT</li>
           </ul>
         </div>
+
         <div class="skill-card">
-          <h3>Frameworks & Technologies</h3>
-          <ul>
-            <li>React, Django, REST APIs</li>
-            <li>Spring Framework, JWT</li>
-            <li>Multi-threading, Socket Programming</li>
-          </ul>
-        </div>
-        <div class="skill-card">
-          <h3>Databases</h3>
+          <h3>Databases & Backend</h3>
           <ul>
             <li>MySQL, PostgreSQL, SQL</li>
             <li>Database Design & Normalization</li>
             <li>Query Optimization</li>
+            <li>Spring Framework</li>
+            <li>Multi-threading</li>
           </ul>
         </div>
+
+        <div class="skill-card">
+          <h3>Machine Learning & Data</h3>
+          <ul>
+            <li>scikit-learn, NumPy, Pandas</li>
+            <li>NLP & Text Processing</li>
+            <li>Model Training & Evaluation</li>
+            <li>Data Analysis & Visualization</li>
+            <li>Streamlit</li>
+          </ul>
+        </div>
+
         <div class="skill-card">
           <h3>Security & Systems</h3>
           <ul>
-            <li>Log Analysis (Splunk), SIEM Fundamentals</li>
-            <li>Intrusion Detection, Firewall Configuration (Fortinet)</li>
-            <li>Linux Environments, Windows Administration</li>
-            <li>TCP/IP, HTTP/HTTPS, Network Traffic Analysis</li>
+            <li>Log Analysis (Splunk), SIEM</li>
+            <li>Intrusion Detection</li>
+            <li>Firewall Configuration (Fortinet)</li>
+            <li>Linux & Windows Admin</li>
+            <li>TCP/IP, Network Analysis</li>
           </ul>
         </div>
-        <!-- Removed 'How I Add Value' card from home — summary exists on About page -->
       </div>
-      <div class="section-cta">
-        <a href="skills.html" class="btn secondary">View full skills</a>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- PROJECTS SECTION -->
-    <section id="projects" class="section reveal-on-scroll">
-      <h2>Featured Projects</h2>
-      <p>
-        Here are a few representative projects. For a deeper breakdown, live demos, and more
-        technical notes, visit the full projects page.
-      </p>
-      <div class="project-grid project-grid--home">
-        <!-- FinTrack -->
-        <article class="project-card parallax-tilt" data-tags="fullstack" data-collapsible="true">
-          <h3>FinTrack – Personal Finance Web App</h3>
-          <p class="project-tech">
-            React · Django · MySQL · REST APIs · JWT · UML
-          </p>
-          <p>
-            Full-stack web application for personal finance tracking. Implemented secure authentication,
-            MVC architecture, and RESTful APIs for financial transaction processing. Designed a normalized
-            relational database and optimized SQL queries to support real-time analytics and multi-user data
-            management.
-          </p>
-          <ul class="project-bullets">
-            <li>Led system modeling and design using UML and documentation best practices.</li>
-            <li>Implemented automated data validation and error handling for 99%+ data integrity.</li>
-            <li>Coordinated agile sprints and collaborative code reviews as modeling & design lead.</li>
-          </ul>
-          <div class="project-links">
-            <a href="https://github.com/AlejandroDoradoP2002/fintrack" target="_blank" rel="noopener">View Code</a>
-            <button class="btn tertiary project-toggle" type="button">Show details</button>
-          </div>
-        </article>
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Portfolio</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-description">
+          Real-world applications demonstrating end-to-end development, machine learning, and systems programming.
+        </p>
+      </div>
 
-        <!-- AI JobShield -->
-        <article class="project-card parallax-tilt" data-tags="ml" data-collapsible="true">
-          <h3>AI JobShield – Fake Job Posting Detector</h3>
-          <p class="project-tech">
-            Python · scikit-learn · Streamlit · NLP
-          </p>
-          <p>
-            End-to-end machine learning application that analyzes 17,000+ job postings and flags potential
-            fraud with ~85% accuracy. Built a full preprocessing pipeline (text normalization, feature
-            extraction) and tuned models via hyperparameter optimization.
-          </p>
-          <ul class="project-bullets">
-            <li>Engineered feature extraction and validation checks for reliable predictions.</li>
-            <li>Deployed an interactive Streamlit UI for non-technical users to test postings.</li>
-            <li>Documented experiment results and model selection decisions.</li>
-          </ul>
-          <div class="project-links">
-            <a href="https://github.com/AlejandroDoradoP2002/ai-jobshield" target="_blank" rel="noopener">View Code</a>
-            <button class="btn tertiary project-toggle" type="button">Show details</button>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">Django</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">REST API</span>
+            </div>
+            <h3>FinTrack</h3>
           </div>
-        </article>
+          <p class="project-description">
+            Full-stack personal finance web application with secure authentication, 
+            real-time transaction processing, and analytics dashboard. Led system design 
+            and database architecture for multi-user data management.
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/AlejandroDoradoP2002/fintrack" target="_blank" rel="noopener" class="project-link">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              View Code
+            </a>
+          </div>
+        </div>
 
-        <!-- Socket Servers -->
-        <article class="project-card parallax-tilt" data-tags="systems" data-collapsible="true">
-          <h3>Concurrent & Iterative Socket Servers</h3>
-          <p class="project-tech">
-            Java · Multi-threading · Networking · Linux
-          </p>
-          <p>
-            Implemented concurrent and iterative client-server architectures in Java using sockets and
-            threads to handle multiple simultaneous connections. Applied OOP design patterns to manage
-            server state and client sessions.
-          </p>
-          <ul class="project-bullets">
-            <li>Used Factory and Observer patterns for extensible server behaviors.</li>
-            <li>Designed custom message protocols with robust error handling.</li>
-            <li>Tested deployments in Linux environments with scripted scenarios.</li>
-          </ul>
-          <div class="project-links">
-            <a href="https://github.com/AlejandroDoradoP2002/socket-servers" target="_blank" rel="noopener">View Code</a>
-            <button class="btn tertiary project-toggle" type="button">Show details</button>
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">ML</span>
+              <span class="tag">NLP</span>
+              <span class="tag">Streamlit</span>
+            </div>
+            <h3>AI JobShield</h3>
           </div>
-        </article>
+          <p class="project-description">
+            Machine learning application that analyzes 17,000+ job postings to detect 
+            fraudulent listings with ~85% accuracy. Built complete NLP pipeline with 
+            feature extraction and deployed interactive Streamlit UI.
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/AlejandroDoradoP2002/ai-jobshield" target="_blank" rel="noopener" class="project-link">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              View Code
+            </a>
+            <a href="https://ai-jobshield-my3qgnxa8prybogdf9ctwx.streamlit.app/" target="_blank" rel="noopener" class="project-link">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7z"/></svg>
+              Live Demo
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-tags">
+              <span class="tag">Java</span>
+              <span class="tag">Networking</span>
+              <span class="tag">Linux</span>
+            </div>
+            <h3>Concurrent Socket Servers</h3>
+          </div>
+          <p class="project-description">
+            Implemented both iterative and concurrent client-server architectures using 
+            Java sockets and multithreading. Designed custom protocols with robust error 
+            handling for managing multiple simultaneous connections.
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/AlejandroDoradoP2002/socket-servers" target="_blank" rel="noopener" class="project-link">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              View Code
+            </a>
+          </div>
+        </div>
       </div>
-      <div style="margin-top: 16px;">
-        <a href="projects.html" class="btn secondary">Open full projects page</a>
+
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="https://github.com/AlejandroDoradoP2002" target="_blank" rel="noopener" class="btn btn-secondary">
+          View All Projects on GitHub →
+        </a>
       </div>
-    </section>
-    <!-- How I Work summary moved to About page. Short CTA below. -->
-    <section id="how-i-work" class="section reveal-on-scroll">
-      <h2>How I work</h2>
-      <p class="section-intro">I break problems into clear tasks, design before coding, ship iteratively, and measure the results.</p>
-      <div class="section-cta">
-        <a href="about.html" class="btn secondary">Read more about my process</a>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Career</span>
+        <h2 class="section-title">Work Experience</h2>
+        <p class="section-description">
+          Professional experience in technical support, programming assistance, and data analysis.
+        </p>
       </div>
-    </section>
-    <!-- EXPERIENCE SECTION -->
-    <section id="experience" class="section reveal-on-scroll">
-      <h2>Experience</h2>
+
       <div class="timeline">
-        <article class="timeline-item">
-          <h3>Programming Assistant – University of North Florida</h3>
-          <p class="timeline-meta">Feb 2024 – Present · Jacksonville, FL</p>
+        <div class="timeline-item">
+          <h3>Programming Assistant</h3>
+          <p class="timeline-meta">University of North Florida · Feb 2024 – Present · Jacksonville, FL</p>
           <ul>
-            <li>Supervise a high-traffic student game lab supporting 900+ users per semester.</li>
-            <li>Provide first-line troubleshooting and system support for lab users.</li>
+            <li>Supervise high-traffic student game lab supporting 900+ users per semester</li>
+            <li>Provide first-line troubleshooting and system support for lab users</li>
+            <li>Assist students with coursework, debugging, and development concepts</li>
+            <li>Lead lab sessions on Java and Python fundamentals</li>
           </ul>
-        </article>
+        </div>
 
-        <article class="timeline-item">
-          <h3>Data Analysis Assistant – SalesLand Colombia SAS</h3>
-          <p class="timeline-meta">Aug 2022 – Jan 2023 · Bogotá, Colombia (Remote/Hybrid)</p>
+        <div class="timeline-item">
+          <h3>Data Analysis Assistant</h3>
+          <p class="timeline-meta">SalesLand Colombia SAS · Aug 2022 – Jan 2023 · Bogotá, Colombia (Hybrid)</p>
           <ul>
-            <li>Automated reporting scripts in Python — reduced manual effort by 60%.</li>
-            <li>Optimized analytics for recruitment selection, improving efficiency by 4.8%.</li>
+            <li>Automated reporting scripts in Python — reduced manual effort by 60%</li>
+            <li>Optimized analytics for recruitment selection, improving efficiency by 4.8%</li>
+            <li>Performed data cleaning, statistical reporting, and business metrics automation</li>
+            <li>Developed ETL scripts and visualization dashboards for stakeholders</li>
           </ul>
-        </article>
-      </div>
-    </section>
-    <!-- Achievements moved to subpages (About / Writing) to avoid duplication on home -->
-    <section id="connect" class="section reveal-on-scroll">
-      <h2>Writing & Contact</h2>
-      <div class="connect-grid">
-        <div>
-          <h3>Thoughts on the CS market</h3>
-          <p class="section-intro">Short notes and essays about career strategy, security, and project-driven learning.</p>
-          <a href="writing.html" class="btn secondary">Read writing & insights</a>
-        </div>
-        <div>
-          <h3>Let's talk</h3>
-          <p class="section-intro">Open to new opportunities: SOC, software engineering, data roles. Reach out and we can chat.</p>
-          <a href="contact.html" class="btn primary">Contact me</a>
         </div>
       </div>
-    </section>
-  </main>
-  <footer class="footer">
-    <p>© <span id="year"></span> Alejandro Dorado. All rights reserved.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Let's Connect</span>
+        <h2 class="section-title">Get in Touch</h2>
+        <p class="section-description">
+          Open to opportunities in software engineering, security operations, and data roles. 
+          Feel free to reach out for collaborations or inquiries.
+        </p>
+      </div>
+
+      <div class="contact-content">
+        <div class="contact-methods">
+          <div class="contact-card">
+            <h3>📧 Email</h3>
+            <a href="mailto:N01482842@unf.edu">N01482842@unf.edu</a>
+          </div>
+          <div class="contact-card">
+            <h3>💼 LinkedIn</h3>
+            <a href="https://www.linkedin.com/in/alejandrodorado" target="_blank" rel="noopener">@alejandrodorado</a>
+          </div>
+          <div class="contact-card">
+            <h3>👨‍💻 GitHub</h3>
+            <a href="https://github.com/AlejandroDoradoP2002" target="_blank" rel="noopener">@AlejandroDoradoP2002</a>
+          </div>
+        </div>
+
+        <div style="margin-top: 3rem;">
+          <a href="mailto:N01482842@unf.edu" class="btn btn-primary">
+            Send Me an Email →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© <span id="year">2025</span> Alejandro Dorado. All rights reserved. Built with passion and code.</p>
+    </div>
   </footer>
 
-  <button id="toTopBtn" class="to-top" aria-label="Back to top">
-    ↑
-  </button>
-  <script src="script.js"></script>
+  <!-- Scroll to Top Button -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
+
+  <script>
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Header scroll effect
+    const header = document.getElementById('header');
+    const scrollTop = document.getElementById('scrollTop');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+        scrollTop.classList.add('visible');
+      } else {
+        header.classList.remove('scrolled');
+        scrollTop.classList.remove('visible');
+      }
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Scroll to top
+    scrollTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.stat-card, .skill-card, .project-card, .timeline-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
